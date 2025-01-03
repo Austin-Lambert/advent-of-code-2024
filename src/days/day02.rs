@@ -36,6 +36,15 @@ fn solve_part2(input: &Vec<Report>) -> i32 {
 fn format_input(input: File) -> Vec<Report> {
     let mut reports = Vec::new();
     let reader = io::BufReader::new(input);
+    let content: String = reader.lines()
+        .map(|line| line.unwrap())
+        .collect::<Vec<String>>()
+        .join("\n");
+    
+    println!("File contents:\n{}", content);
+
+    // Now recreate the reader since we consumed it
+    let reader = io::BufReader::new(content.as_bytes());
     for line in reader.lines() {
         reports.push(Report { levels: format_line(line.unwrap()) });
     }
