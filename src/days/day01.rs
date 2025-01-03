@@ -1,7 +1,5 @@
 use std::io::{self, BufRead};
 use std::fs::File;
-use std::io::Write;
-use tempfile::NamedTempFile;
 
 pub fn solve(input: File) {
     let formatted = format_input(input);
@@ -83,6 +81,8 @@ struct Input {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use std::io::Write;
+    use tempfile::NamedTempFile;
 
     #[test]
     fn it_will_solve_the_problem_for_part_1() {
