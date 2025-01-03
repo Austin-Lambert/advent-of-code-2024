@@ -4,6 +4,7 @@ use std::process::exit;
 
 mod days {
     pub mod day01;
+    pub mod day02;
 }
 
 fn main() {
@@ -77,6 +78,7 @@ fn select_input_file(day: u32) -> File {
 fn solve_day(day: u32, input: File) {
     match day {
         1 => days::day01::solve(input),
+        2 => days::day02::solve(input),
         _ => println!("Day {} not implemented yet", day),
     };
 }
