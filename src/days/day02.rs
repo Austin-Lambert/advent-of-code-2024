@@ -85,6 +85,21 @@ mod tests {
     use super::*;
 
     #[test]
+    fn it_will_solve_part_1() {
+        let mut temp_file = NamedTempFile::new().unwrap();
+        writeln!(temp_file, "7 6 4 2 1").unwrap();
+        writeln!(temp_file, "1 2 7 8 9").unwrap();
+        writeln!(temp_file, "9 7 6 2 1").unwrap();
+        writeln!(temp_file, "1 3 2 4 5").unwrap();
+        writeln!(temp_file, "8 6 4 4 1").unwrap();
+        writeln!(temp_file, "1 3 6 7 9").unwrap();
+
+        let input = format_input(temp_file.reopen().unwrap());
+        let result = solve_part1(&input);
+        assert_eq!(result, 2);
+    }
+
+    #[test]
     fn it_will_solve_part_2() {
         let mut temp_file = NamedTempFile::new().unwrap();
         writeln!(temp_file, "7 6 4 2 1").unwrap();
