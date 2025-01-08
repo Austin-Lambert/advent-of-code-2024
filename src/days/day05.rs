@@ -1,7 +1,6 @@
 use std::io::{self, BufRead};
 use std::fs::File;
 use std::collections::HashMap;
-use std::ops::Index;
 
 pub fn solve(input: File) {
     let formatted_input = format_input(input);
@@ -207,16 +206,6 @@ impl Page {
 
     fn check_after(&self, update: u32) -> bool {
         !self.should_come_before.contains(&update)
-    }
-
-    fn all_should_be_after(&self, update: &Vec<u32>) -> bool {
-        !self.should_come_after.iter().all(|&i| update.contains(&i)) && 
-        self.should_come_before.iter().all(|&i| update.contains(&i))
-    }
-
-    fn all_should_be_before(&self, update: &Vec<u32>) -> bool {
-        !self.should_come_before.iter().all(|&i| update.contains(&i)) && 
-        self.should_come_after.iter().all(|&i| update.contains(&i))
     }
 
     fn pare(&self, update: &Vec<u32>) -> Page {

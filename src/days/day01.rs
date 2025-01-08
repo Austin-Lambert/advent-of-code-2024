@@ -11,14 +11,14 @@ pub fn solve(input: File) {
     println!("The answer for part 2 is: {}", part2);
 }
 
-pub fn solve_part1(input: Input) -> i32 {
+fn solve_part1(input: Input) -> i32 {
     let sorted = sort_input(input);
     let subtracted = subtract_lists(sorted.first, sorted.second);
     let sum = sum_list(subtracted);
     sum
 }
 
-pub fn solve_part2(input: Input) -> i32 {
+fn solve_part2(input: Input) -> i32 {
     let similarity = calculate_similarity(input.first, input.second);
     let sum = sum_list(similarity);
     sum

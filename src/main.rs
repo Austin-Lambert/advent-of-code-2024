@@ -9,12 +9,13 @@ mod days {
     pub mod day04;
     pub mod day05;
     pub mod day06;
+    pub mod day07;
 }
 
 fn main() {
     startup_prompt();
     let day = day_prompt();
-    let input = select_input_file(day);
+    let input = select_input_file();
     solve_day(day, input);
 }
 
@@ -45,7 +46,7 @@ fn day_prompt() -> u32 {
     }
 }
 
-fn select_input_file(day: u32) -> File {
+fn select_input_file() -> File {
     let input_dir = "src/inputs";
     
     let entries = fs::read_dir(input_dir).unwrap_or_else(|e| {
@@ -87,6 +88,7 @@ fn solve_day(day: u32, input: File) {
         4 => days::day04::solve(input),
         5 => days::day05::solve(input),
         6 => days::day06::solve(input),
+        7 => days::day07::solve(input),
         _ => println!("Day {} not implemented yet", day),
     };
 }

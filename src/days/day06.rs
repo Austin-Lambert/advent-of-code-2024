@@ -68,9 +68,8 @@ fn find_loops(input: &Vec<Vec<String>>) -> Vec<(usize, usize)> {
             if input[i][j] != "."  {
                 continue;
             }
-            let original = input[i][j].clone();
             input[i][j] = String::from("#");
-            let mut trial = guard.clone().predict_path(&input);
+            let trial = guard.clone().predict_path(&input);
             if trial.is_loop() {
                 println!("     - loop found\n");
                 looped.push((i, j));
@@ -162,14 +161,6 @@ impl Guard {
             Direction::Left => self.position.1 == 0,
             Direction::Right => self.position.1 == self.bounds.1 - 1,
         }
-    }
-
-    fn will_loop(&self) -> bool {
-        let new_pos = self.direction.move_forward(self.position);
-        if(self.path.contains(&new_pos)) {
-            return true;
-        }
-        false
     }
 
     fn is_loop(&self) -> bool {
