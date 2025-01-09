@@ -12,13 +12,12 @@ pub fn solve(input: File) {
 }
 
 fn solve_part1(input: &Vec<Calibration>) -> i64 {
-    let mut valid_calibrations = check_calibrations(&input);
-    let mut sum = 0;
+    let valid_calibrations = check_calibrations(&input);
     sum_calibrations(&valid_calibrations)
 }
 
 fn solve_part2(input: &Vec<Calibration>) -> i64 {
-    let mut valid_calibrations = check_calibrations_split(&input);
+    let valid_calibrations = check_calibrations_split(&input);
     sum_calibrations(&valid_calibrations)
 }
 
@@ -168,15 +167,15 @@ mod tests {
 
     fn create_file_input() -> File {
         let mut temp_file = NamedTempFile::new().unwrap();
-        writeln!(temp_file, "190: 10 19");
-        writeln!(temp_file, "3267: 81 40 27");
-        writeln!(temp_file, "83: 17 5");
-        writeln!(temp_file, "156: 15 6");
-        writeln!(temp_file, "7290: 6 8 6 15");
-        writeln!(temp_file, "161011: 16 10 13");
-        writeln!(temp_file, "192: 17 8 14");
-        writeln!(temp_file, "21037: 9 7 18 13");
-        writeln!(temp_file, "292: 11 6 16 20");
+        writeln!(temp_file, "190: 10 19").unwrap();
+        writeln!(temp_file, "3267: 81 40 27").unwrap();
+        writeln!(temp_file, "83: 17 5").unwrap();
+        writeln!(temp_file, "156: 15 6").unwrap();
+        writeln!(temp_file, "7290: 6 8 6 15").unwrap();
+        writeln!(temp_file, "161011: 16 10 13").unwrap();
+        writeln!(temp_file, "192: 17 8 14").unwrap();
+        writeln!(temp_file, "21037: 9 7 18 13").unwrap();
+        writeln!(temp_file, "292: 11 6 16 20").unwrap();
         File::open(temp_file.path()).unwrap()
     }
 

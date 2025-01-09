@@ -183,16 +183,16 @@ mod tests {
     #[test]
     fn it_will_solve_part_one() {
         let mut temp_file = NamedTempFile::new().unwrap();
-        writeln!(temp_file, "....#.....");
-        writeln!(temp_file, ".........#");
-        writeln!(temp_file, "..........");
-        writeln!(temp_file, "..#.......");
-        writeln!(temp_file, ".......#..");
-        writeln!(temp_file, "..........");
-        writeln!(temp_file, ".#..^.....");
-        writeln!(temp_file, "........#.");
-        writeln!(temp_file, "#.........");
-        writeln!(temp_file, "......#...");
+        writeln!(temp_file, "....#.....").unwrap();
+        writeln!(temp_file, ".........#").unwrap();
+        writeln!(temp_file, "..........").unwrap();
+        writeln!(temp_file, "..#.......").unwrap();
+        writeln!(temp_file, ".......#..").unwrap();
+        writeln!(temp_file, "..........").unwrap();
+        writeln!(temp_file, ".#..^.....").unwrap();
+        writeln!(temp_file, "........#.").unwrap();
+        writeln!(temp_file, "#.........").unwrap();
+        writeln!(temp_file, "......#...").unwrap();
         let formatted = format_input(temp_file.reopen().unwrap());
         let part1 = solve_part1(&formatted);
         assert_eq!(part1, 41);
@@ -201,16 +201,16 @@ mod tests {
     #[test]
     fn it_will_solve_part_two() {
         let mut temp_file = NamedTempFile::new().unwrap();
-        writeln!(temp_file, "....#.....");
-        writeln!(temp_file, ".........#");
-        writeln!(temp_file, "..........");
-        writeln!(temp_file, "..#.......");
-        writeln!(temp_file, ".......#..");
-        writeln!(temp_file, "..........");
-        writeln!(temp_file, ".#..^.....");
-        writeln!(temp_file, "........#.");
-        writeln!(temp_file, "#.........");
-        writeln!(temp_file, "......#...");
+        writeln!(temp_file, "....#.....").unwrap();
+        writeln!(temp_file, ".........#").unwrap();
+        writeln!(temp_file, "..........").unwrap();
+        writeln!(temp_file, "..#.......").unwrap();
+        writeln!(temp_file, ".......#..").unwrap();
+        writeln!(temp_file, "..........").unwrap();
+        writeln!(temp_file, ".#..^.....").unwrap();
+        writeln!(temp_file, "........#.").unwrap();
+        writeln!(temp_file, "#.........").unwrap();
+        writeln!(temp_file, "......#...").unwrap();
         let formatted = format_input(temp_file.reopen().unwrap());
         let part1 = solve_part2(&formatted);
         assert_eq!(part1, 6);
@@ -219,11 +219,11 @@ mod tests {
     #[test]
     fn it_will_format_the_input_correctly() {
         let mut temp_file = NamedTempFile::new().unwrap();
-        writeln!(temp_file, "....#");
-        writeln!(temp_file, ".....");
-        writeln!(temp_file, "....^");
-        writeln!(temp_file, "..#..");
-        writeln!(temp_file, ".....");
+        writeln!(temp_file, "....#").unwrap();
+        writeln!(temp_file, ".....").unwrap();
+        writeln!(temp_file, "....^").unwrap();
+        writeln!(temp_file, "..#..").unwrap();
+        writeln!(temp_file, ".....").unwrap();
         let formatted = format_input(temp_file.reopen().unwrap());
         assert_eq!(formatted, vec![
             vec![".", ".", ".", ".", "#"],
