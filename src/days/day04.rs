@@ -183,16 +183,16 @@ mod tests {
     #[test]
     fn it_will_solve_part2() {
         let mut temp_file = NamedTempFile::new().unwrap();
-        writeln!(temp_file, "MMMSXXMASM");
-        writeln!(temp_file, "MSAMXMSMSA");
-        writeln!(temp_file, "AMXSXMAAMM");
-        writeln!(temp_file, "MSAMASMSMX");
-        writeln!(temp_file, "XMASAMXAMM");
-        writeln!(temp_file, "XXAMMXXAMA");
-        writeln!(temp_file, "SMSMSASXSS");
-        writeln!(temp_file, "SAXAMASAAA");
-        writeln!(temp_file, "MAMMMXMMMM");
-        writeln!(temp_file, "MXMXAXMASX");
+        writeln!(temp_file, "MMMSXXMASM").unwrap();
+        writeln!(temp_file, "MSAMXMSMSA").unwrap();
+        writeln!(temp_file, "AMXSXMAAMM").unwrap();
+        writeln!(temp_file, "MSAMASMSMX").unwrap();
+        writeln!(temp_file, "XMASAMXAMM").unwrap();
+        writeln!(temp_file, "XXAMMXXAMA").unwrap();
+        writeln!(temp_file, "SMSMSASXSS").unwrap();
+        writeln!(temp_file, "SAXAMASAAA").unwrap();
+        writeln!(temp_file, "MAMMMXMMMM").unwrap();
+        writeln!(temp_file, "MXMXAXMASX").unwrap();
         let input = format_input(temp_file.reopen().unwrap());
         assert_eq!(solve_part2(&input), 9);
     }

@@ -137,6 +137,15 @@ impl DiskMap {
         (occupied, free)
     }
 
+    #[allow(dead_code)]
+    fn ungroup_blocks_into_map(&mut self, files: &Vec<AFile>) {
+        let mut map = Vec::new();
+        for file in files {
+            map.extend(file.block_type.repeat(file.blocks))
+        }
+        self.map = map;
+    }
+
     fn sort_files(&mut self) {
         println!("SORTING");
         let (mut occupied, mut free) = self.group_files_by_type(&self.group_blocks_by_id());
