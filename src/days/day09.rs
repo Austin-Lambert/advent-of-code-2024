@@ -124,7 +124,7 @@ impl DiskMap {
     }
 
     fn group_files_by_type(&self, files: &Vec<AFile>) -> (Vec<AFile>, Vec<AFile>) {
-        let mut files = files.clone();
+        let files = files.clone();
         let mut occupied = Vec::new();
         let mut free = Vec::new();
         for file in files {
@@ -135,14 +135,6 @@ impl DiskMap {
             }
         }
         (occupied, free)
-    }
-
-    fn ungroup_blocks_into_map(&mut self, files: &Vec<AFile>) {
-        let mut map = Vec::new();
-        for file in files {
-            map.extend(file.block_type.repeat(file.blocks))
-        }
-        self.map = map;
     }
 
     fn sort_files(&mut self) {
@@ -170,18 +162,6 @@ impl DiskMap {
         self.map = map;
         true
     }
-
-    fn as_string(&self) -> String {
-        let mut result = String::new();
-        for block in self.map.clone() {
-            if let BlockType::File(id) = block {
-                result.push_str(&id.to_string());
-            } else {
-                result.push('.');
-            }
-        }
-        result
-    }
 }
 
 #[derive(Clone, PartialEq, Eq, Debug, Copy)]
@@ -193,7 +173,7 @@ enum BlockType {
 impl BlockType {
     fn repeat(&self, n: usize) -> Vec<BlockType> {
         let mut result = Vec::new();
-        for i in 0..n {
+        for _i in 0..n {
             result.push(self.clone());
         }
         result
