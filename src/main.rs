@@ -11,6 +11,7 @@ mod days {
     pub mod day06;
     pub mod day07;
     pub mod day08;
+    pub mod day09;
 }
 
 fn main() {
@@ -91,6 +92,7 @@ fn solve_day(day: u32, input: File) {
         6 => days::day06::solve(input),
         7 => days::day07::solve(input),
         8 => days::day08::solve(input),
+        9 => days::day09::solve(input),
         _ => println!("Day {} not implemented yet", day),
     };
 }
