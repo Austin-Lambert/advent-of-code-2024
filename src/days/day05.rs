@@ -98,15 +98,11 @@ fn check_all_updates(rules: &HashMap<u32, Page>, updates: &Vec<Vec<u32>>) -> Che
 fn check_update_set(rules: &HashMap<u32, Page>, update_set: &Vec<u32>) -> bool {
     for i in 0..update_set.len() {
         let rule = rules.get(&update_set[i]).unwrap();
-        if i > 0 {
-            if rule.check_before(update_set[i-1]) {
+        if i > 0 && rule.check_before(update_set[i-1]) {
             return false;
-            }
         }
-        if i < update_set.len() - 1 {
-            if rule.check_after(update_set[i+1]) {
-                return false;
-            }
+        if i < update_set.len() - 1 && rule.check_after(update_set[i+1]) {
+            return false;
         }
     }
     true
